@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo1 fetch</title>
+</head>
+<body>
+   <img src="" id="sub" width="480" alt="">
+   <script>
+const imageURL="https://media.istockphoto.com/id/1360703227/photo/hungry-cat-licking-the-table.webp?s=1024x1024&w=is&k=20&c=AjZXRVE3MAmsmQ0QHMRT9VF2ITMAhF_Aw8fqxcrT5NA="
+console.log('Fetching trek');
+fetch(imageURL)
+.then (response =>{
+    console.log(response);
+    return response.blob()
+
+}).then(blob=>{
+    document.getElementByID('trekFueld').src=blob;
+    console.log('Here is the BLOB '+blob);
+
+    document.getElementByID('trekFuel').src=URL.createObjectURL(blob);
+    console.log('Here is the local URL');
+});
+
+
+   </script> 
+</body>
+</html>
